@@ -26,7 +26,7 @@ public class StatesHotOrCold {
 		StatesGraph graph;
 		
 		try{
-			 BufferedReader in = new BufferedReader(new FileReader(new File("src/stateAdjacencyList.txt")));
+			 BufferedReader in = new BufferedReader(new FileReader(new File("stateAdjacencyList.txt")));
 			 data = in.readLine();
 			 num_verticies = Integer.parseInt(data);
 			 data = in.readLine();
@@ -144,8 +144,8 @@ public class StatesHotOrCold {
 			
 			try{
 				String line = "";
-				PrintWriter writer = new PrintWriter(new BufferedWriter(new FileWriter("src/scoreList.temp")));
-				BufferedReader in = new BufferedReader(new FileReader(new File("src/scoreList.txt")));
+				PrintWriter writer = new PrintWriter(new BufferedWriter(new FileWriter("scoreList.temp")));
+				BufferedReader in = new BufferedReader(new FileReader(new File("scoreList.txt")));
 				int lineNum = 1;
 				String temp = "";
 				while((line = in.readLine()) != null && lineNum <11){
@@ -168,17 +168,17 @@ public class StatesHotOrCold {
 					writer.close();
 					in.close();
 					// ... and finally ...
-					File realName = new File("src/scoreList.txt");
+					File realName = new File("scoreList.txt");
 					realName.delete(); // remove the old file
 					// Rename temp file
-					new File("src/scoreList.temp").renameTo(realName); // Rename temp file
+					new File("scoreList.temp").renameTo(realName); // Rename temp file
 			}catch(IOException e){
 				e.printStackTrace();
 			}
 		}
 		
 		try{
-		 BufferedReader in = new BufferedReader(new FileReader(new File("src/scoreList.txt")));
+		 BufferedReader in = new BufferedReader(new FileReader(new File("scoreList.txt")));
 		 System.out.println("The High Scores are: ");
 		 for(int i = 1; i < 11; i++){
 			 String data = in.readLine();
@@ -195,7 +195,7 @@ public class StatesHotOrCold {
 		int num = 1;
 		try{
 			@SuppressWarnings("resource")
-			BufferedReader names = new BufferedReader(new FileReader(new File("src/stateNames.txt")));
+			BufferedReader names = new BufferedReader(new FileReader(new File("stateNames.txt")));
 			String line = "";
 			
 				while((line = names.readLine()) !=null){

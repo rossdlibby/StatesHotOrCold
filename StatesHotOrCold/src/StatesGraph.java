@@ -4,12 +4,9 @@ import java.util.List;
 import java.util.Map;
 
 public class StatesGraph {
-	 /* Makes use of Map collection to store the adjacency list for each vertex.*/
+
     private  Map<Integer, List<Integer>> Adjacency_List;
-    /*
-     * Initializes the map to with size equal to number of vertices in a graph
-     * Maps each vertex to a given List Object
-     */
+    
     public StatesGraph(int num_verts)
     {
         Adjacency_List = new HashMap<Integer, List<Integer>>();
@@ -18,9 +15,8 @@ public class StatesGraph {
             Adjacency_List.put(i, new LinkedList<Integer>());
         }
     }
- 
- 
-    /* Adds nodes in the Adjacency list for the corresponding vertex */
+
+    // Adds nodes in the Adjacency list for the corresponding vertex 
     public void setEdge(int source , int destination)
     {
         if (source > Adjacency_List.size() || destination > Adjacency_List.size())
@@ -34,7 +30,7 @@ public class StatesGraph {
         dlist.add(source);
     }
  
-    /* Returns the List containing the vertex joining the source vertex */
+    // Returns the List containing the vertex joining the source vertex 
     public List<Integer> getEdge(int source)
     {
         if (source > Adjacency_List.size())
