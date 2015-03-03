@@ -1,7 +1,7 @@
-Alaska
 Alabama
-Arkansas
+Alaska
 Arizona
+Arkansas
 California
 Colorado
 Connecticut
@@ -10,29 +10,29 @@ Delaware
 Florida
 Georgia
 Hawaii
-Iowa
 Idaho
 Illinois
 Indiana
+Iowa
 Kansas
 Kentucky
 Louisiana
-Massachusetts
-Maryland
 Maine
+Maryland
+Massachusetts
 Michigan
 Minnesota
-Missouri
 Mississippi
+Missouri
 Montana
-North Carolina
-North Dakota
 Nebraska
+Nevada
 New Hampshire
 New Jersey
 New Mexico
-Nevada
 New York
+North Carolina
+North Dakota
 Ohio
 Oklahoma
 Oregon
@@ -43,9 +43,9 @@ South Dakota
 Tennessee
 Texas
 Utah
-Virginia
 Vermont
+Virginia
+West Virginia
 Washington
 Wisconsin
-West Virginia
 Wyoming

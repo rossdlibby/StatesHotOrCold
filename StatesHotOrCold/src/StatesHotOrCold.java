@@ -24,9 +24,67 @@ public class StatesHotOrCold {
 		int distance =-1;
 		//create an empty adjacency matrix
 		StatesGraph graph;
+
+		/**
+		 * Array of facts according to state
+		 */
+		String[] facts = {
+			"Introduced the Mardi Gras to the western world",
+			"First discovered in 1741",
+			"The saguaro cactus blossom is the official state flower",
+			"Contains over 600,000 acres of lakes and 9",
+			"700 miles of streams and rivers",
+			"More turkeys are raised in this state than in any other state in the United States",
+			"The United States federal government owns more than 1/3 of the land in this state",
+			"This is the nation's capital",
+			"The world's first nuclear powered submarine was built here",
+			"The nation's first scheduled steam railroad began in this state",
+			"This state has the only metropolitan area in the United States whose borders encompass two national parks",
+			"This state joined the Confederacy on January 19, 1861",
+			"This state is the most isolated population center on the face of the earth",
+			"This state forbids a citizen to give another citizen a box of candy that weighs more than 50 pounds",
+			"The world's first Skyscraper was built here",
+			"The first long-distance auto race in the U. S. was held May 30, 1911 in this state",
+			"Spirit Lake is the largest glacier-made lake in the state",
+			"The first woman mayor in the United States was elected in this state",
+			"Chevrolet Corvettes are manufactured here",
+			"This state was named in honor of King Louis XIV",
+			"This is the only state in the United States whose name has one syllable",
+			"The United States Naval Academy was founded here on October 10, 1845",
+			"This state built the first subway system in the United States",
+			"This state is the home of the world's largest cement plant",
+			"The stapler was invented in this state",
+			"Borden's Condensed Milk was first canned in this state",
+			"The first successful parachute jump to be made from a moving airplane was made by Captain Berry in this state in 1912",
+			"The average square mile of land contains 1.4 elk, 1.4 pronghorn antelope, and 3.3 deer",
+			"This state was once called \"The Great American Desert\"",
+			"In this state, the Kangaroo Rat can live its entire life without drinking a drop of liquid",
+			"Of the thirteen original colonies, this state was the first to declare its independence from Mother England",
+			"Each October this state hosts the world's largest international hot air balloon fiesta",
+			"Dairying is this state's most important farming activity with over 18,000 cattle and or calves farms",
+			"This state has the highest percent urban population in the U.S. with about 90% of the people living in an urban area",
+			"Charles Karault was born and raised here",
+			"Milk is the official state beverage",
+			"Ermal Fraze invented the pop-top can in this state",
+			"The world's first installed parking meter was in this state",
+			"This state contains the deepest lake in the United States",
+			"The first daily newspaper was published in this state in 1784",
+			"Judge Darius Baker imposed the first jail sentence for speeding in an automobile on August 28, 1904 in this state",
+			"This state entered the Union on May 23, 1788",
+			"The largest underground gold mine is in this state",
+			"There were more National Guard soldiers deployed from this state for the Gulf War effort than any other state",
+			"This is the only state to have the flags of 6 different nations fly over it",
+			"Levan, is \"navel\" spelled backwards. It is so named because it is in the middle of this state",
+			"This state has the only state capital without a McDonalds",
+			"This state was named for an English queen",
+			"This state produces more apples than any other state in the union",
+			"This state has the oldest population of any state. The median age is 40",
+			"This state is home to 7,446 streams and rivers",
+			"This state is home to the first official National Park"
+		};
 		
 		try{
-			 BufferedReader in = new BufferedReader(new FileReader(new File("stateAdjacencyList.txt")));
+			 BufferedReader in = new BufferedReader(new FileReader(new File("../stateAdjacencyList.txt")));
 			 data = in.readLine();
 			 num_verticies = Integer.parseInt(data);
 			 data = in.readLine();
@@ -59,23 +117,29 @@ public class StatesHotOrCold {
 				{
 					win = true;
 				}else{
-					distance = getDistance(guess, randState, graph);
-					switch(distance){
-					case 1:
-						System.out.println("You are HOT! " + distance);
-						break;
-					case 2:
-						System.out.println("You are warm " + distance);
-						break;
-					case 3:
-						System.out.println("You are cold " + distance);
-						break;
-					default:
-						System.out.println("You are Freezing! " + distance);
-						break;
+
+					if(guess == 7734){
+						System.out.println("Hint: " + facts[randState - 1]);
+					} else {
+
+						distance = getDistance(guess, randState, graph);
+						switch(distance){
+						case 1:
+							System.out.println("You are HOT! " + distance);
+							break;
+						case 2:
+							System.out.println("You are warm " + distance);
+							break;
+						case 3:
+							System.out.println("You are cold " + distance);
+							break;
+						default:
+							System.out.println("You are Freezing! " + distance);
+							break;
+						}
 					}
 					
-					System.out.println("Enter a state name. ex. Arizona");
+					System.out.println("Enter a state name. ex. Arizona (\"hint\" if you need help)");
 					guessString = keyboard.nextLine();
 					guess = getGuessInt(guessString);
 					while(guess == 0 ){
@@ -145,7 +209,7 @@ public class StatesHotOrCold {
 			try{
 				String line = "";
 				PrintWriter writer = new PrintWriter(new BufferedWriter(new FileWriter("scoreList.temp")));
-				BufferedReader in = new BufferedReader(new FileReader(new File("scoreList.txt")));
+				BufferedReader in = new BufferedReader(new FileReader(new File("../scoreList.txt")));
 				int lineNum = 1;
 				String temp = "";
 				while((line = in.readLine()) != null && lineNum <11){
@@ -193,6 +257,11 @@ public class StatesHotOrCold {
 	//Converts users string guess into an integer for checking
 	public static int getGuessInt(String state){
 		int num = 1;
+
+			if(new String("hint").equals(state)){
+				return 7734;
+			}
+
 		try{
 			@SuppressWarnings("resource")
 			BufferedReader names = new BufferedReader(new FileReader(new File("stateNames.txt")));
